@@ -4,8 +4,8 @@ exports.up = (knex, Promise) => {
     table.string('name')
     table.string('email')
     table.string('location')
-    table.integer('dog_id')
-    table.string('is_walker')
+    table.integer('dog_id').references(dogs.id)
+    table.integer('is_walker')
     table.integer('experience')
   })
 }
