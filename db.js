@@ -17,7 +17,22 @@ function getUser (id, testConn) {
   return conn('users').where('id', id).first()
 }
 
-function newDog (newDog, testConn) {
-  const conn = testConn || connection)
-  return conn()
-  
+function newDog (dogData, testConn) {
+  const conn = testConn || connection
+  return conn('dogs')
+    .insert({
+      'name': dogData.name,
+      'size': dogData.size,
+      'location': dogData.location,
+      'gender': dogData.gender,
+      'breed': dogData.breed,
+      'bio': dogData.bio,
+      'profile_pic': dogData.profilePic
+    })
+
+function newUser (dogData, id, testConn) {
+  const conn = testConn || connection
+  return conn('users')
+    .insert({
+      'name': 
+    })
