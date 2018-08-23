@@ -4,10 +4,10 @@ exports.up = (knex, Promise) => {
     table.string('name')
     table.string('size')
     table.string('location')
-    table.integer('gender')
-    table.integer('breed')
-    table.integer('bio')
-    table.integer('profile_pic')
+    table.string('gender')
+    table.string('breed')
+    table.string('bio')
+    table.string('profile_pic')
   })
 }
 
