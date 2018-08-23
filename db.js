@@ -4,7 +4,8 @@ const connection = require('knex')(config)
 
 module.exports = {
   getUser: getUser,
-  getUsers: getUsers
+  getUsers: getUsers,
+  newUser: newUser
 }
 
 function getUsers (testConn) {
@@ -14,25 +15,13 @@ function getUsers (testConn) {
 
 function getUser (id, testConn) {
   const conn = testConn || connection
-  return conn('users').where('id', id).first()
+  return conn('users').where('id', id)
+    .join('dogs', 'dogs.id', 'users.dog_id')
+    .first()
 }
 
-function newDog (dogData, testConn) {
-  const conn = testConn || connection
-  return conn('dogs')
-    .insert({
-      'name': dogData.name,
-      'size': dogData.size,
-      'location': dogData.location,
-      'gender': dogData.gender,
-      'breed': dogData.breed,
-      'bio': dogData.bio,
-      'profile_pic': dogData.profilePic
-    })
-
-function newUser (dogData, id, testConn) {
+function newUser (user, testConn) {
   const conn = testConn || connection
   return conn('users')
-    .insert({
-      'name': 
-    })
+    .insert(user)
+}
