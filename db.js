@@ -14,5 +14,13 @@ function getUsers (testConn) {
 
 function getUser (id, testConn) {
   const conn = testConn || connection
-  return conn('users').where('id', id).first()
+  return conn('users').where('id', id)
+    .join('dogs', 'dogs.id', 'users.dog_id')
+    .first()
+}
+
+function newUser (user, testConn) {
+  const conn = testConn || connection
+  return conn('users')
+    .insert(user)
 }
