@@ -20,3 +20,4 @@ function getUser (id, testConn) {
 function newDog (newDog, testConn) {
   const conn = testConn || connection)
   return conn()
+  
