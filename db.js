@@ -16,3 +16,7 @@ function getUser (id, testConn) {
   const conn = testConn || connection
   return conn('users').where('id', id).first()
 }
+
+function newDog (newDog, testConn) {
+  const conn = testConn || connection)
+  return conn()
