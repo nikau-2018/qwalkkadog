@@ -5,5 +5,7 @@ exports.up = (knex, Promise) => {
 }
 
 exports.down = (knex, Promise) => {
-    return knex.schema.dropColumn('users')
+  return knex.schema.table('users', table => {
+    table.dropColumn('profile_pic')
+  })
 }
