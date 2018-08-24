@@ -26,6 +26,12 @@ router.post('/signupDog', (req, res) => {
       })
 })
 
+router.get('/profile/:id', (req, res) => {
+  const id = req.params.id
+  db.getUser(id)
+    .then((userDogData) => res.render('profile', userDogData))
+})
+
 router.get('/signupwalker', (req, res) => {
   res.render('userSignup')
 })
