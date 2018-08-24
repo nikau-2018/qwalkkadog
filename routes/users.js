@@ -32,13 +32,7 @@ router.get('/profile/:id', (req, res) => {
     .then((walker) => {
       // console.log(walker[0])
       if (walker[0].is_walker) {
-        const walkerData = {walker: walker[0]}
-        db.getDogs()
-          .then((allDogs) => {
-            walkerData.dogs = allDogs
-          })
-          console.log(walkerData)
-        res.render('profile', walkerData)
+        res.render('profile', walker[0])
       } else {
         db.getUser(id)
           .then((owner) => res.render('profile', owner))
