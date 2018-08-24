@@ -2,7 +2,7 @@
 <h3>Sign up your dog to be walked!</h3>
 <form action="/signupDog" method="post">
 
-    Your Name: <input type="text" name="ownerName">
+    Your Name: <input type="text" name="name">
     Your Email:  <input type="email" name="email">
     Dog Location:
     <select name="location">
@@ -12,7 +12,7 @@
       <option value="south">South Auckland</option>
       <option value="west">West Auckland</option>
     </select>
-    Dog Name: <input type="text" name="name">
+    Dog Name: <input type="text" name="dogName">
     Dog Size:
     <select name="size">
       <option value="small">Small</option>
@@ -37,5 +37,6 @@
     </select>
     Dog bio: <input type="text" name="bio">
     Dog picture URL: <input type="text" name="profilePic">
+    <input type="hidden" name="isWalker" value="false">
    <button>Signup Dog</button>
 </form>

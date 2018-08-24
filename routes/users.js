@@ -22,6 +22,12 @@ router.post('/dogsignup', (req, res) => {
 
 })
 
+// ALISA TESTING
+
+router.get('/alisa', (req, res) => {
+  res.render('profile')
+})
+
 /* router.get('/try', (req, res) => {
   db.getUsers()
     .then(users => {
