@@ -1,22 +1,29 @@
 <h3>Sign up to become a dog walker!</h3>
-<form action="/signupWalker" method="post">
-
-    Name: <input type="text" name="name">
-    Email:  <input type="email" name="email">
-    Location:
-    <select name="location">
-      <option value="cbd">City Centre</option>
-      <option value="north">North Shore</option>
-      <option value="east">East Auckland</option>
-      <option value="south">South Auckland</option>
-      <option value="west">West Auckland</option>
-    </select>
-    Experience:
-    <select name="experience">
-      <option value="beginner">Beginner</option>
-      <option value="intermediate">Intermediate</option>
-      <option value="advanced">Advanced</option>
-    </select> 
-    <input type="hidden" name="is_walker" value="true">
-   <button>Become a Walker</button>
-</form>
+<div class="row">
+  <div class="seven columns signup-form">
+    <form action="/signupWalker" method="post">
+      <label>Name:</label><input type="text" name="name"><br>
+      <label>Email:</label><input type="email" name="email"><br>
+      <label>Location:</label>
+      <select name="location">
+        <option value="cbd">City Centre</option>
+        <option value="north">North Shore</option>
+        <option value="east">East Auckland</option>
+        <option value="south">South Auckland</option>
+        <option value="west">West Auckland</option>
+      </select><br>
+      <label>Experience:</label>
+      <select name="experience">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select><br>
+      <input type="hidden" name="is_walker" value="true">
+      <button><i class="fa fa-walking"></i> Become a Walker</button>
+    </form>
+    <a href="/" class="back-link"><i class="fa fa-home"></i> Back To Home</a>
+  </div>
+  <div class="five columns signup-img-container">
+    <img src="/images/new-user-illustration.png" class="signup-img">
+  </div>
+</div>

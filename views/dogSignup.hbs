@@ -1,42 +1,63 @@
 
 <h3>Sign up your dog to be walked!</h3>
-<form action="/signupDog" method="post">
-
-    <label>Your Name:</label><input type="text" name="ownerName"><br>
-    <label>Your Email:</label> <input type="email" name="email"><br>
-    <label>Dog Location:</label>
-    <select name="location">
-      <option value="cbd">City Centre</option>
-      <option value="north">North Shore</option>
-      <option value="east">East Auckland</option>
-      <option value="south">South Auckland</option>
-      <option value="west">West Auckland</option>
-    </select><br>
-    <label>Dog Name:</label> <input type="text" name="dogName"><br>
-    <label>Dog Size:</label>
-    <select name="size">
-      <option value="small">Small</option>
-      <option value="medium">Medium</option>
-      <option value="large">Large</option>
-    </select><br>
-    <label>Dog Gender:</label>
-    <select name="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select><br>
-    <label>Dog Breed:</label>
-    <select name="breed">
-      <option value="beagle">Beagle</option>
-      <option value="collie">Border Collie</option>
-      <option value="chihuahua">Chihuahua</option>
-      <option value="shepherd">German Shepherd</option>
-      <option value="labrador">Labrador</option>
-      <option value="poodle">Poodle</option>
-      <option value="pug">Pug</option>
-      <option value="schnauzer">Schnauzer</option>
-    </select><br>
-    <label>Dog bio:</label> <input type="text" name="bio"><br>
-    <label>Dog picture URL:</label> <input type="text" name="profilePic">
-    <input type="hidden" name="isWalker" value="false"><br>
-   <button>Signup Dog</button><br>
-</form>
+<div class="row">
+  <div class="seven columns signup-form">
+    <form action="/signupDog" method="post">
+      <label>Your Name:</label><input type="text" name="ownerName"><br>
+      <label>Your Email:</label> <input type="email" name="email"><br>
+      <label>Dog Location:</label>
+      <select name="location">
+        <option value="cbd">City Centre</option>
+        <option value="north">North Shore</option>
+        <option value="east">East Auckland</option>
+        <option value="south">South Auckland</option>
+        <option value="west">West Auckland</option>
+      </select><br>
+      <label>Dog Name:</label> <input type="text" name="dogName"><br>
+      <label>Dog Size:</label>
+      <select name="size">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+      </select><br>
+      <label>Dog Gender:</label>
+      <select name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select><br>
+      <label>Dog Breed:</label>
+      <select name="breed">
+        <option value="beagle">Beagle</option>
+        <option value="collie">Border Collie</option>
+        <option value="chihuahua">Chihuahua</option>
+        <option value="shepherd">German Shepherd</option>
+        <option value="labrador">Labrador</option>
+        <option value="poodle">Poodle</option>
+        <option value="pug">Pug</option>
+        <option value="schnauzer">Schnauzer</option>
+      </select><br>
+      <label>Dog bio:</label> <input type="text" name="bio"><br>
+      <label>Dog picture URL:</label> <input type="text" name="profilePic">
+      <input type="hidden" name="isWalker" value="false"><br>
+      <button><i class="fas fa-paw"></i> Sign up Dog</button><br>
+    </form>
+    <a href="/" class="back-link"><i class="fa fa-home"></i> Back To Home</a>
+  </div>
+  <div class="five columns signup-img-container">
+    <div class="sun">
+      <div class="ray_box">
+        <div class="ray ray1"></div>
+        <div class="ray ray2"></div>
+        <div class="ray ray3"></div>
+        <div class="ray ray4"></div>
+        <div class="ray ray5"></div>
+        <div class="ray ray6"></div>
+        <div class="ray ray7"></div>
+        <div class="ray ray8"></div>
+        <div class="ray ray9"></div>
+        <div class="ray ray10"></div>
+      </div>
+    </div>
+    <img src="/images/dog-illustration.png" class="signup-img">
+  </div>
+</div>
