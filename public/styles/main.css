@@ -1,0 +1,35 @@
+body {
+  background: #50A7C2;
+  font-family: 'Helvetica Neue';
+  margin: 30px;
+  padding: 5px;
+  text-align: left;
+}
+
+h1 {
+ font-size: 80px;
+ color: rgb(4, 4, 43);
+ text-align: center;
+}
+
+h3 {
+  color: rgb(48, 48, 138);
+  text-align: center;
+}
+label {
+  display: inline-block;
+  width: 175px;
+}
+input,
+select {
+  width: 250px !important;
+}
+
+
+/* display: block;
+height: 30px;
+font-size: 80px;
+border: 200px;
+border-top: 1px solid #6D7993;
+padding: 300;
+ */
