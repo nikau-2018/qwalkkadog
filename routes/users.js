@@ -30,9 +30,15 @@ router.get('/profile/:id', (req, res) => {
   const id = req.params.id
   db.getWalker(id)
     .then((walker) => {
-      // console.log(user[0])
+      // console.log(walker[0])
       if (walker[0].is_walker) {
-        res.render('profile', walker[0])
+        const walkerData = {walker: walker[0]}
+        db.getDogs()
+          .then((allDogs) => {
+            walkerData.dogs = allDogs
+          })
+          console.log(walkerData)
+        res.render('profile', walkerData)
       } else {
         db.getUser(id)
           .then((owner) => res.render('profile', owner))
