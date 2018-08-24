@@ -5,7 +5,7 @@ const db = require('../db')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  res.redirect('/index')
+  res.redirect('/home')
 })
 
 router.get('/home', (req, res) => {
@@ -36,15 +36,15 @@ router.get('/signupwalker', (req, res) => {
   res.render('userSignup')
 })
 
-/* router.post('/signupwalker', (req, res) => {
-
+router.post('/signupwalker', (req, res) => {
+  const walkerData = req.body
+  db.newUser(walkerData)
+    .then(ids => res.redirect(`/profile/${ids[0]}`))
+    .catch(
+      err => {
+        res.status(500).send(err.message)
+      })
 })
-
-router.get(`/profile/${id}${type}`, (req, res) => {
-})
-
-router.post(`/profile/${id}${type}`, (req, res) => {
-}) */
 
 /* router.get('/try', (req, res) => {
   db.getUsers()
