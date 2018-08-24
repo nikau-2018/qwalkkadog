@@ -16,8 +16,9 @@ function getUsers (testConn) {
 
 function getUser (id, testConn) {
   const conn = testConn || connection
-  return conn('users').where('id', id)
+  return conn('users')
     .join('dogs', 'dogs.id', 'users.dog_id')
+    .where('users.id', id)
     .first()
 }
 
