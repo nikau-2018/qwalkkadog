@@ -6,7 +6,8 @@ module.exports = {
   getUser: getUser,
   getWalker: getWalker,
   newUser: newUser,
-  newDog: newDog
+  newDog: newDog,
+  getDogs: getDogs
 }
 
 function getWalker (id, testConn) {
@@ -40,7 +41,7 @@ function newDog (dogData, testConn) {
       'location': dogData.location,
       'breed': dogData.breed,
       'bio': dogData.bio,
-      'profile_pic': dogData.profile_pic
+      'profile_pic': dogData.profilePic
     })
     .then((dogId) => {
       return conn('users')
@@ -53,6 +54,10 @@ function newDog (dogData, testConn) {
     })
 }
 
+function getDogs (testConn) {
+  const conn = testConn || connection
+  return conn('dogs').select()
+}
 /* function newDog (dogData, testConn) {
   const conn = testConn || connection
   return conn('dogs')
