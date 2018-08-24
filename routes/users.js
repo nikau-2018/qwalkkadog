@@ -28,8 +28,16 @@ router.post('/signupDog', (req, res) => {
 
 router.get('/profile/:id', (req, res) => {
   const id = req.params.id
-  db.getUser(id)
-    .then((userDogData) => res.render('profile', userDogData))
+  db.getWalker(id)
+    .then((walker) => {
+      // console.log(user[0])
+      if (walker[0].is_walker) {
+        res.render('profile', walker[0])
+      } else {
+        db.getUser(id)
+          .then((owner) => res.render('profile', owner))
+      }
+    })
 })
 
 router.get('/signupwalker', (req, res) => {
