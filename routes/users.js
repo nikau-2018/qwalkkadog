@@ -12,15 +12,39 @@ router.get('/home', (req, res) => {
   res.render('index')
 })
 
-router.get('/dogsignup', (req, res) => {
+router.get('/signupdog', (req, res) => {
   res.render('dogSignup')
 })
 
-router.post('/dogsignup', (req, res) => {
+router.post('/signupDog', (req, res) => {
   const dogData = req.body
   db.newDog(dogData)
+    .then(ids => res.redirect(`/profile/${ids[0]}`))
+    .catch(
+      err => {
+        res.status(500).send(err.message)
+      })
+})
+
+router.get('/profile/:id', (req, res) => {
+  const id = req.params.id
+  db.getUser(id)
+    .then((userDogData) => res.render('profile', userDogData))
+})
+
+router.get('/signupwalker', (req, res) => {
+  res.render('userSignup')
+})
+
+/* router.post('/signupwalker', (req, res) => {
 
 })
+
+router.get(`/profile/${id}${type}`, (req, res) => {
+})
+
+router.post(`/profile/${id}${type}`, (req, res) => {
+}) */
 
 /* router.get('/try', (req, res) => {
   db.getUsers()
