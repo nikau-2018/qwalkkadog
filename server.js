@@ -6,6 +6,7 @@ const userRoutes = require('./routes/users')
 const server = express()
 
 // Middleware
+server.use(express.static('public'))
 
 server.engine('hbs', hbs({
   extname: 'hbs',
