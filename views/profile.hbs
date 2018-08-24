@@ -1,6 +1,16 @@
-<div class="row">
-  {{> profile}}
-</div>  
-<div class="row">
-  {{> dogs}}
-</div> 
+ {{#if isWalker}}
+    <div class="row">
+      {{> profile}}
+    </div>  
+    <div class="row">
+      <h4>View all dogs</h4>
+      {{> dogLinks}}
+    </div> 
+  {{else}}
+    <div class="row">
+      {{> dogProfile}}
+    </div> 
+    <div class="row">
+      {{> profile}}
+    </div>  
+{{/if}}

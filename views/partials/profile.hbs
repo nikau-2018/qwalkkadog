@@ -1,4 +1,6 @@
-<h3>Hi {{name}}</h3>
+<p>Your Name: {{name}}<p>
 <p>Email: {{email}}</p>
 <p>Location: {{location}}</p>
-<p>Experience: {{experience}}</p>
+{{#if isWalker}}
+  <p>Experience: {{experience}}</p>
+{{/if}}
