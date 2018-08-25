@@ -1,16 +1,20 @@
- {{#if is_walker}}
+ {{#if userData.isWalker}}
     <div class="row">
-      {{> profile}}
-    </div>  
-    <div class="row">
-      <h4>View all dogs</h4>
-      {{> dogLinks}}
+      <div class="six columns">
+        {{> profile}}
+      </div>
+      <div class="six columns">
+        {{> dogLinks}}
+      </div>
     </div> 
+    <a href="/" class="back-link"><i class="fa fa-home"></i> Back To Home</a>
   {{else}}
     <div class="row">
-      {{> dogProfile}}
-    </div> 
-    <div class="row">
-      {{> profile}}
+      <div class="six columns">
+        {{> dogProfile}}
+      </div>
+      <div class="six columns">
+        {{> profile}}
+      </div>
     </div>  
 {{/if}}

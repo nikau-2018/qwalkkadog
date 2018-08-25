@@ -3,7 +3,7 @@
   <div class="six columns tile-signup">
     <a href="/signupwalker" class="tile-signup-link">
       <img src="/images/new-user-illustration.png" class="home-img">
-      <h3>User Sign-up</h3>
+      <h3>Walker Sign-up</h3>
     </a>
     <div class="signup-content">
       <div class="line"></div>
@@ -11,27 +11,39 @@
         Enjoy the great outdoors? Would you like a little company on your journey's?
       </p>
       <p>
-        Become a dog walking and start your little side hustle, while doing what you love!
+        Become a dog walker and start your own side hustle, while doing what you love!
       </p>
       <a href="/signupwalker" class="signup-btn"><i class="fa fa-lock"></i> Sign Up Now</a>
     </div>
+    <div class="section-2">
+      <h3>Pooches Ready To Walk</h3>
+      <div class="line"></div>
+      <ul>
+        {{#each dogsData}}
+          <li>A {{size}}-sized {{breed}} in {{dogLocation}}.<br>
+          <a href="/dogprofile/{{dogId}}"><i class="fa fa-link"></i> View {{dogName}}'s Profile</a><br>
+          <a href="mailto:{{email}}?Subject=Hi%20{{userName}}%20I%20am%20interested%20in%20walking%20{{dogName}}" target="_top"><i class="fa fa-envelope"></i> Email {{dogName}}'s owner {{userName}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
   </div>
+
   <div class="six columns tile-signup">
     <a href="/signupdog" class="tile-signup-link">
-    <div class="sun">
-      <div class="ray_box">
-        <div class="ray ray1"></div>
-        <div class="ray ray2"></div>
-        <div class="ray ray3"></div>
-        <div class="ray ray4"></div>
-        <div class="ray ray5"></div>
-        <div class="ray ray6"></div>
-        <div class="ray ray7"></div>
-        <div class="ray ray8"></div>
-        <div class="ray ray9"></div>
-        <div class="ray ray10"></div>
+      <div class="sun">
+        <div class="ray_box">
+          <div class="ray ray1"></div>
+          <div class="ray ray2"></div>
+          <div class="ray ray3"></div>
+          <div class="ray ray4"></div>
+          <div class="ray ray5"></div>
+          <div class="ray ray6"></div>
+          <div class="ray ray7"></div>
+          <div class="ray ray8"></div>
+          <div class="ray ray9"></div>
+          <div class="ray ray10"></div>
+        </div>
       </div>
-    </div>
       <img src="/images/dog-illustration.png" class="home-img">
       <h3>Dog Sign-up</h3>
     </a>
@@ -45,6 +57,16 @@
         Well look no further! Register your dog with "Walk My Dog", and show your best friend you love them.
       </p>
       <a href="/signupdog" class="signup-btn"><i class="fa fa-lock"></i> Sign Up Now</a>
+    </div>
+
+    <div class="section-2">
+      <h3>Walkers Ready To Walk</h3>
+      <div class="line"></div>
+      <ul>
+        {{#each walkersData}}
+          <li>{{userName}} is a {{experience}} level walker in {{userLocation}}.<br><a href="mailto:{{email}}?Subject=A%20Walk%20My%20Dog%20enquiry" target="_top"><i class="fa fa-envelope"></i> Email {{userName}}</a></li>
+        {{/each}}
+      </ul>
     </div>
   </div>
 </div>

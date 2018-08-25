@@ -9,7 +9,16 @@ router.get('/', (req, res) => {
 })
 
 router.get('/home', (req, res) => {
-  res.render('index')
+  const infoObj = new Object
+  db.getUsers()
+    .then(dogs => {
+      infoObj.dogsData = dogs
+      db.getWalkers()
+        .then(walkers => {
+          infoObj.walkersData = walkers
+          res.render('index', infoObj)
+        })
+    })
 })
 
 router.get('/signupdog', (req, res) => {
@@ -28,16 +37,34 @@ router.post('/signupDog', (req, res) => {
 
 router.get('/profile/:id', (req, res) => {
   const id = req.params.id
-  db.getWalker(id)
-    .then((walker) => {
-      // console.log(walker[0])
-      if (walker[0].is_walker) {
-        res.render('profile', walker[0])
+  const infoObj = new Object()
+
+  db.getUser(id)
+    .then(user => {
+
+      // Handle a walker user.
+      if(user === undefined) {
+
+        // Get the walker profile.
+        db.getWalker(id)
+          .then(walker => {
+            infoObj.userData = walker
+
+            // Get the dogs data.
+            db.getDogs()
+              .then(dogs => {
+                infoObj.dogsData = dogs
+                res.render('profile', infoObj)
+              })
+          })
       } else {
-        db.getUser(id)
-          .then((owner) => res.render('profile', owner))
+        infoObj.userData = user
+        res.render('profile', infoObj)
       }
     })
+    .catch(
+      err => res.status(500).send(err.message)
+    )
 })
 
 router.get('/signupwalker', (req, res) => {
@@ -47,12 +74,21 @@ router.get('/signupwalker', (req, res) => {
 router.post('/signupwalker', (req, res) => {
   const walkerData = req.body
   db.newUser(walkerData)
-    .then(ids => res.redirect(`/profile/${ids[0]}`))
+    .then(ids => {
+      res.redirect(`/profile/${ids[0]}`)
+    })
     .catch(
       err => {
         res.status(500).send(err.message)
       })
 })
+
+function getDogs () {
+  db.getDogs()
+    .then(dogs => {
+      return dogs
+    })
+}
 
 /* router.get('/try', (req, res) => {
   db.getUsers()

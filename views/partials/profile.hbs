@@ -1,6 +1,18 @@
-<p>Your Name: {{name}}<p>
-<p>Email: {{email}}</p>
-<p>Location: {{location}}</p>
-{{#if isWalker}}
-  <p>Experience: {{experience}}</p>
-{{/if}}
+<div class="row">
+  <div class="profile-pic">
+    <img src="{{userData.userPic}}" alt="User profile image">
+  </div>
+  <div class="profile-info">
+    {{# if userData.isWalker}}
+      <h2>Walker Details</h2>
+    {{else}}
+      <h2>Owners Details</h2>
+    {{/if}}
+    <p><strong>Name:</strong> {{userData.userName}}<p>
+    <p><strong>Email:</strong> {{userData.email}}</p>
+    <p><strong>Location:</strong> {{userData.userLocation}}</p>
+    {{#if userData.isWalker}}
+      <p><strong>Experience:</strong> {{userData.experience}}</p>
+    {{/if}}
+  </div>
+</div>

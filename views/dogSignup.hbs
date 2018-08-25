@@ -5,6 +5,7 @@
     <form action="/signupDog" method="post">
       <label>Your Name:</label><input type="text" name="ownerName"><br>
       <label>Your Email:</label> <input type="email" name="email"><br>
+      <label>Owner Profile picture:</label><input type="text" name="ownerProfilePic"><br>
       <label>Dog Location:</label>
       <select name="location">
         <option value="cbd">City Centre</option>
@@ -13,7 +14,8 @@
         <option value="south">South Auckland</option>
         <option value="west">West Auckland</option>
       </select><br>
-      <label>Dog Name:</label> <input type="text" name="dogName"><br>
+      <label>Dog Name:</label><input type="text" name="dogName"><br>
+      <label>Dog profile picture:</label><input type="text" name="dogProfilePic"><br>
       <label>Dog Size:</label>
       <select name="size">
         <option value="small">Small</option>
@@ -36,10 +38,9 @@
         <option value="pug">Pug</option>
         <option value="schnauzer">Schnauzer</option>
       </select><br>
-      <label>Dog bio:</label> <input type="text" name="bio"><br>
-      <label>Dog picture URL:</label> <input type="text" name="profilePic">
+      <label>Dog bio:</label><textarea type="text" name="bio" rows="50"></textarea><br>
       <input type="hidden" name="isWalker" value="false"><br>
-      <button><i class="fas fa-paw"></i> Sign up Dog</button><br>
+      <button class="sign-up"><i class="fa fa-paw"></i> Sign up Dog</button><br>
     </form>
     <a href="/" class="back-link"><i class="fa fa-home"></i> Back To Home</a>
   </div>

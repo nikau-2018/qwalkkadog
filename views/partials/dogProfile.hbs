@@ -1,11 +1,15 @@
 <div class="row">
-  <img src={{profile_pic}} alt="Dog image">
-</div>
-<div class="row">
-  <p>Name: {{name}}</p>
-  <p>Gender: {{gender}}</p>
-  <p>Size: {{size}}</p>
-  <p>Breed: {{breed}}</p>
-  <p>Location: {{location}}</p>
-  <p>Bio: {{bio}}</p>
+  <div class="profile-pic">
+    <img src="{{userData.dogPic}}" alt="Dog image">
+  </div>
+  <div class="profile-info">
+    <h2>Dog Details</h2>
+    <p><strong>Name:</strong> {{userData.dogName}}</p>
+    <p><strong>Gender:</strong> {{userData.gender}}</p>
+    <p><strong>Size:</strong> {{userData.size}}</p>
+    <p><strong>Breed:</strong> {{userData.breed}}</p>
+    <p><strong>Location:</strong> {{userData.dogLocation}}</p>
+    <p class="bio"><strong>Bio:</strong> {{userData.bio}}</p>
+    <a href="/" class="back-link"><i class="fa fa-home"></i> Back To Home</a>
+  </div>
 </div>

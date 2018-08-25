@@ -29,6 +29,14 @@ h3 {
 
 a {
   text-decoration: none;
+  color: #000;
+  -webkit-transition: all ease-in-out .3s;
+  -moz-transition: all ease-in-out .3s;
+  transition: all ease-in-out .3s;
+}
+
+a:hover {
+  color: #666;
 }
 
 a.back-link {
@@ -59,7 +67,8 @@ label {
 }
 
 input,
-select {
+select,
+textarea {
   width: 100% !important;
 }
 
@@ -90,6 +99,10 @@ button {
 .home-img {
   width: 250px;
   height: 250px;
+}
+
+ul.home-list {
+  text-align: center;
 }
 
 .signup-img-container {
@@ -125,6 +138,36 @@ button {
 .signup-btn:hover {
   color: rgb(255, 138, 4);
   border: 1px solid  rgb(255, 138, 4);
+}
+
+/* Profile Page */
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  margin: 3rem auto;
+}
+
+.profile-pic img {
+  height: 250px;
+}
+
+.profile-pic--small img {
+  height: 75px;
+}
+
+.profile-info strong {
+  display: inline-block;
+}
+.profile-info p,
+.profile-info li {
+  text-transform: capitalize;
+}
+
+.profile-info .bio {
+  text-transform: none;
 }
 
 /* Engraved separator */
@@ -265,12 +308,26 @@ button {
   MEDIA QUERIES:
 */
 @media screen and (min-width: 600px) {
-  .signup-content {
-    width: 60%;
+  .section-2 {
+    width: 75%;
+    text-align: left;
+    margin: auto;
   }
 
-  button {
-    
+  .signup-content {
+    min-height: 300px;
+    width: 75%;
+  }
+
+  .profile-info,
+  .links-container {
+    position: relative;
+    padding: 2rem;
+  }
+
+  .profile-pic {
+    text-align: left;
+    margin-left: 0;
   }
 
   .signup-img {

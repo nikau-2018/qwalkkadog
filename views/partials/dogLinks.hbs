@@ -1,7 +1,13 @@
-<ul>
-{{#each dogs}}
-  <li>
-    {{size}}-sized {{breed}} in {{location}}. <a href="/dogprofile/{{id}}">Walk {{name}}</a>
-  </li>
-{{/each}}
-</ul>
+<div class="row">
+  <div class="profile-pic">
+    <img src="/images/map-illustration.png" class="home-img">
+  </div>
+  <div class="profile-info">
+    <h2>Dogs in your area.</h2>
+    <ul>
+    {{#each dogsData}}
+      <li>{{size}}-sized {{breed}} in {{location}}. <a href="/dogprofile/{{id}}">Walk {{name}}</a></li>
+    {{/each}}
+    </ul>
+  </div>
+</div>
