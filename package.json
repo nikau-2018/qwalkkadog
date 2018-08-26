@@ -1,6 +1,9 @@
 {
   "name": "qwalkkadog-app",
   "version": "0.1.4",
+  "engines": {
+    "node": "8.11.4"
+  },
   "description": "Express boilerplate with Knex.js",
   "main": "index.js",
   "scripts": {
