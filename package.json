@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate-knex",
+  "name": "qwalkkadog-app",
   "version": "0.1.4",
   "description": "Express boilerplate with Knex.js",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dev-academy-challenges/boilerplate-knex.git"
+    "url": "git+https://github.com/nikau-2018/qwalkkadog.git"
   },
-  "author": "EDA",
+  "author": "Qwalkkadog",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dev-academy-challenges/boilerplate-knex/issues"
+    "url": "https://github.com/nikau-2018/qwalkkadog/issues"
   },
-  "homepage": "https://github.com/dev-academy-challenges/boilerplate-knex#readme",
+  "homepage": "https://github.com/nikau-2018/qwalkkadog/blob/master/README.md",
   "dependencies": {
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
