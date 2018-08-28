@@ -8,6 +8,7 @@ exports.up = (knex, Promise) => {
     table.string('breed')
     table.string('bio')
     table.string('profile_pic')
+    table.integer('user_id').references('users.id')
   })
 }
 

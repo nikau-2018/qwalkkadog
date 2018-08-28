@@ -4,7 +4,6 @@ exports.up = (knex, Promise) => {
     table.string('name')
     table.string('email')
     table.string('location')
-    table.integer('dog_id').references('dogs.id')
     table.boolean('is_walker')
     table.string('experience')
   })
