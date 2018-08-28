@@ -16,7 +16,7 @@ module.exports = {
 function getUser (id, testConn) {
   const conn = testConn || connection
   return conn('users')
-    .join('dogs', 'dogs.id', 'users.dog_id')
+    .join('dogs', 'dogs.user_id', 'users.id')
     .where('users.id', id)
     .select(
       'users.name as userName', 'users.email', 'users.location as userLocation', 'users.is_walker as isWalker', 'users.experience', 'users.profile_pic as userPic', 'dogs.name as dogName', 'dogs.size', 'dogs.location as dogLocation', 'dogs.gender', 'dogs.breed', 'dogs.bio', 'dogs.profile_pic as dogPic'
@@ -28,7 +28,7 @@ function getUser (id, testConn) {
 function getUsers (testConn) {
   const conn = testConn || connection
   return conn('users')
-  .join('dogs', 'dogs.id', 'users.dog_id')
+  .join('dogs', 'dogs.user_id', 'users.id')
   .select(
     'users.name as userName', 'users.email', 'users.location as userLocation', 'users.is_walker as isWalker', 'users.experience', 'users.profile_pic as userPic', 'dogs.id as dogId', 'dogs.name as dogName', 'dogs.size', 'dogs.location as dogLocation', 'dogs.gender', 'dogs.breed', 'dogs.bio', 'dogs.profile_pic as dogPic'
   )
