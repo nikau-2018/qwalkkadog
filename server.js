@@ -13,7 +13,10 @@ server.engine('hbs', hbs({
   defaultLayout: 'main'
 }))
 server.set('view engine', 'hbs')
-server.use(express.urlencoded({extended: true}))
+// server.use(express.urlencoded({extended: true}))
+
+// Tell Express how to process the body of the request messages.
+server.use(express.json())
 
 // Routes
 
