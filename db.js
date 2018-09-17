@@ -6,6 +6,7 @@ const { generateHash } = require('./auth/hash')
 
 module.exports = {
   getUser,
+  getAuthUser,
   getUsers,
   getWalker,
   getWalkers,
@@ -33,6 +34,13 @@ function userExists (username, testConn) {
     })
 }
 
+// Auth get user test.
+function getAuthUser (id, testConn) {
+  const conn = testConn || connection
+  return conn('users')
+    .first()
+}
+
 // Get user by ID.
 function getUser (id, testConn) {
   const conn = testConn || connection
@@ -43,7 +51,7 @@ function getUser (id, testConn) {
       'users.name as userName', 'users.email', 'users.location as userLocation', 'users.is_walker as isWalker', 'users.experience', 'users.profile_pic as userPic', 'dogs.name as dogName', 'dogs.size', 'dogs.location as dogLocation', 'dogs.gender', 'dogs.breed', 'dogs.bio', 'dogs.profile_pic as dogPic'
     )
     .first()
-}
+} 
 
 // Get all users.
 function getUsers (testConn) {
