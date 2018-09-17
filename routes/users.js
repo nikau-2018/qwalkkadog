@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/home', (req, res) => {
-  const infoObj = new Object
+  const infoObj = new Object()
   db.getUsers()
     .then(dogs => {
       infoObj.dogsData = dogs
@@ -41,10 +41,8 @@ router.get('/profile/:id', (req, res) => {
 
   db.getUser(id)
     .then(user => {
-
       // Handle a walker user.
-      if(user === undefined) {
-
+      if (user === undefined) {
         // Get the walker profile.
         db.getWalker(id)
           .then(walker => {
@@ -73,6 +71,7 @@ router.get('/signupwalker', (req, res) => {
 
 router.post('/signupwalker', (req, res) => {
   const walkerData = req.body
+
   db.newUser(walkerData)
     .then(ids => {
       res.redirect(`/profile/${ids[0]}`)

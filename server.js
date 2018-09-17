@@ -2,6 +2,7 @@ const express = require('express')
 const hbs = require('express-handlebars')
 
 const userRoutes = require('./routes/users')
+const authRoutes = require('./routes/auth')
 
 const server = express()
 
@@ -21,5 +22,6 @@ server.use(express.json())
 // Routes
 
 server.use('/', userRoutes)
+server.use('/api/v1/auth', authRoutes)
 
 module.exports = server

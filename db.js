@@ -2,14 +2,35 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
+const { generateHash } = require('./auth/hash')
+
 module.exports = {
-  getUser: getUser,
-  getUsers: getUsers,
-  getWalker: getWalker,
-  getWalkers: getWalkers,
-  newUser: newUser,
-  newDog: newDog,
-  getDogs: getDogs
+  getUser,
+  getUsers,
+  getWalker,
+  getWalkers,
+  newUser,
+  newDog,
+  getDogs,
+  createUser,
+  userExists
+}
+
+function createUser (username, password, testConn) {
+  const db = testConn || connection
+  return generateHash(password)
+    .then(hash => db('users').insert({username, hash}))
+}
+
+// Check if user exists.
+function userExists (username, testConn) {
+  const conn = testConn || connection
+  return conn('users')
+    .count('id as n')
+    .where('username', username)
+    .then(count => {
+      return count[0].n > 0
+    })
 }
 
 // Get user by ID.
@@ -28,10 +49,10 @@ function getUser (id, testConn) {
 function getUsers (testConn) {
   const conn = testConn || connection
   return conn('users')
-  .join('dogs', 'dogs.user_id', 'users.id')
-  .select(
-    'users.name as userName', 'users.email', 'users.location as userLocation', 'users.is_walker as isWalker', 'users.experience', 'users.profile_pic as userPic', 'dogs.id as dogId', 'dogs.name as dogName', 'dogs.size', 'dogs.location as dogLocation', 'dogs.gender', 'dogs.breed', 'dogs.bio', 'dogs.profile_pic as dogPic'
-  )
+    .join('dogs', 'dogs.user_id', 'users.id')
+    .select(
+      'users.name as userName', 'users.email', 'users.location as userLocation', 'users.is_walker as isWalker', 'users.experience', 'users.profile_pic as userPic', 'dogs.id as dogId', 'dogs.name as dogName', 'dogs.size', 'dogs.location as dogLocation', 'dogs.gender', 'dogs.breed', 'dogs.bio', 'dogs.profile_pic as dogPic'
+    )
 }
 
 // Get walker profile.
@@ -60,6 +81,8 @@ function newUser (user, testConn) {
   return conn('users')
     .insert({
       'name': user.name,
+      'username': user.username,
+      'hash': user.password,
       'email': user.email,
       'location': user.location,
       'experience': user.experience,
